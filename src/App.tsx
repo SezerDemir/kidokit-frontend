@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
 
+import {HomepageContainer} from "./components/homepage/homepage-container"
+
 function App() {
   return (
     <div className="App">
-      <h1>hisss</h1>
+      <HomepageContainer />
     </div>
   );
 }

@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+.button-sign-up:hover {background-color: #2de7f5}
+.button-sign-up:active {
+    background-color: #356ab9;
+    transform: translateY(4px);
+}
+
+.homepage-content .sign-up-container > button:hover {color: #bdb6b6}
+
+.homepage-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-image: url("../../images/BabyPhoto.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.homepage-header{
+    padding: 0;
+    margin: 0;
+}
+
+.homepage-header > img{
+    margin: 25% 0 0 0;
+    width: 15rem;
+    height: 4rem;
+}
+
+.homepage-content{
+    font-family: 'DM Sans', sans-serif;
+    margin: 2.5rem 0 0 0;
+    color: #FFFFFF;
+}
+
+.homepage-content > h2{
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.homepage-content > p{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.homepage-content > button{
+    text-align: center;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    color: #735EBB;
+    width: 8rem;
+    height: 3rem;
+    border-radius: 1rem;
+    border: none;
+    margin: 2rem 0 0 0;
+    font-weight: 700;
+}
+
+.homepage-content > button{
+    text-align: center;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+    color: #735EBB;
+    width: 8rem;
+    height: 3rem;
+    border-radius: 1rem;
+    border: none;
+
+    margin: 2rem 0 0 0;
+}
+
+.homepage-content .sign-up-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    
+}
+
+.homepage-content .sign-up-container > p{
+    margin: 5rem 0 0 0;
+
+    color: white;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.homepage-content .sign-up-container > button{
+    margin: 5rem 0 0 0;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    text-align: center;
+    
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+
+
