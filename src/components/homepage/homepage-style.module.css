@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
+*{
+    margin: 0;
+}
+
 .button-sign-up:hover {background-color: #2de7f5}
 .button-sign-up:active {
     background-color: #2de7f5;
