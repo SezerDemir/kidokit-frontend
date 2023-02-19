@@ -128,7 +128,7 @@ export function RegisterContent(){
                     "email" : email,
                     "password" : password,
                     "childName" : childName,
-                    "childBirthDay" : childBirthDay,
+                    "childBirthday" : childBirthDay,
                     "childGender" : childGender
                 }
             );
@@ -136,7 +136,6 @@ export function RegisterContent(){
                 .then(response => {
                     console.log(response)
                 })
-            console.log(jsonString); 
         }
         else{
             const errorMessage: string = 
