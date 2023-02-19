@@ -16,101 +16,338 @@ li{
 }
 
 .register-container{
-    width: 100vw;
-    height: 100vh;
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+}
+
+.register-content-container{
+    width: 100vw;
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 6rem 14rem 8rem 8rem 8rem 4rem;
+    grid-template-areas: 
+        "nameCell emailCell"
+        "passwordCell repeatPasswordCell"
+        "kidNameCell kidBirthdayCell"
+        "kidGenderCell warningCell"
+        "userAgreementCell userAgreementCell"
+        "submitCell submitCell"
+    ;
 }
 
 .register-header{
-    margin: 3rem 0 0 0;
-    text-align: center;
-
+    height: 10rem;
 }
+
 .register-header > h1{
     color: #8D75E0;
     font-size: 2.5rem;
+    margin-top: 4rem;
 } 
 
-.register-content-container{
-    display: grid;
-    place-items: center;
-    width: 75%;
-    margin: 3rem 0 0 0;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
-
-    grid-template-areas: 
-        "namebox emailbox"
-        "passwordbox passwordrepeat"
-    ;
-
+.name-cell{
+    position: relative;
+    grid-area: nameCell;
 }
 
-.register-input-text{
-    border-radius: 0.5rem;
-    border-color: #735EBB;
-    width: 20rem;
+.name-cell > h1{
+    position: absolute;
+    grid-area: nameText;
     height: 2rem;
-    margin: 1rem 0 0 0;
-    font-weight: 400;
-    font-size: 1.25rem;
-    text-align: left;
+    right: 7rem;
 }
 
-.name-box{
-    grid-area: namebox;
-    margin:0;
-    height: 7rem;
-    width: 25rem;
+.name-cell > input{
+    position: absolute;
+    grid-area: nameInput;
+    height: 2rem;
+    width: 20rem;
+    border-radius: 2rem;
+    border: 2px solid #735EBB;
+    font-size: 1rem;
+    right: 5rem;
+    top: 3rem
 }
 
-.email-box{
-    grid-area: emailbox;
-    margin-top: 0;
-    height: 7rem;
-    width: 25rem;
-
+.email-cell {
+    position: relative;
+    grid-area: emailCell;
 }
 
-
-.password-box{
-    grid-area: passwordbox;
-    height: 10rem;
-    width: 25rem;
+.email-cell > h1 {
+    position: absolute;
+    text-align: end;
+    left: 4.5rem;
 }
 
-.password-repeat-box{
-    grid-area: passwordrepeat;
-    align-self: left;
-    height: 10rem;
-    width: 25rem;
-
+.email-cell > input{
+    position: absolute;
+    height: 2rem;
+    width: 20rem;
+    border-radius: 2rem;
+    border: 2px solid #735EBB;
+    font-size: 1rem;
+    top: 3rem;
+    left: 5rem;
 }
 
+.password-cell{
+    position: relative;
+    grid-area: passwordCell;
+}
+.password-cell > h1{
+    position: absolute;
+    height: 2rem;
+    right: 7.25rem;
+    top: 2rem;
+}
 
-.hide-button{
-    margin-left: -2rem;
-    border: 0; 
-    background: url('../../images/hide.png') no-repeat;
+.password-cell > input{
+    position: absolute;
+    height: 2rem;
+    width: 20rem;
+    border-radius: 2rem;
+    border: 2px solid #735EBB;
+    font-size: 1rem;
+    top: 5rem;
+    right: 5rem;
+}
+
+.password-cell > ul {
+    position: absolute;
+    top:8rem;
+    right: 7rem;
+}
+
+.password-cell > button{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    background-image: url("../../images/hide.png");
+    background-repeat: no-repeat;
+    height: 1.5rem;
     width: 1.5rem;
-    height: 1.25rem;
+    right: 6rem;
+    top: 5.5rem;
 }
 
-.valid-input-text-li{
-    list-style-image: url("../../images/valid-sign.png") no-repeat;
-    color:#3CD77A;
+.password-cell > button:active{
+    transform: translateY(2px);
 }
 
-.invalid-input-text-li{
-    list-style: none;
+.repeat-password-cell{
+    position: relative;
+    grid-area: repeatPasswordCell;
+    
+}
+
+.repeat-password-cell > h1{
+    position: absolute;
+    height: 2rem;
+    right: 7.5rem;
+    top: 2rem;
+    left: 4.5rem;
+}
+
+.repeat-password-cell > input{
+    position: absolute;
+    height: 2rem;
+    width: 20rem;
+    border-radius: 2rem;
+    border: 2px solid #735EBB;
+    font-size: 1rem;
+    left: 5rem;
+    top: 5rem
+}
+
+.repeat-password-cell > button{
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    background-image: url("../../images/hide.png");
+    background-repeat: no-repeat;
+    height: 1.5rem;
+    width: 1.5rem;
+    left: 23rem;
+    top: 5.5rem;
+}
+
+.repeat-password-cell > button:active{
+    transform: translateY(2px);
+}
+
+.kid-name-cell{
+    position: relative;
+    grid-area: kidNameCell;
+}
+
+.kid-name-cell > h1{
+    position: absolute;
+    top: 2rem;
+    right: 11.25rem;
+}
+
+.kid-name-cell > input{
+    position: absolute;
+    height: 2rem;
+    width: 20rem;
+    border-radius: 2rem;
+    border: 2px solid #735EBB;
+    font-size: 1rem;
+    top: 5rem;
+    right: 5rem;
+}
+
+.kid-birthday-cell{
+    position: relative;
+    grid-area: kidBirthdayCell;
+}
+
+.kid-birthday-cell > h1{
+    position: absolute;
+    top: 2rem;
+    left: 4.5rem;
+}
+
+.kid-birthday-cell > input[type="date"]{
+    position: absolute;
+    height: 2rem;
+    width: 20rem;
+    border-radius: 2rem;
+    border: 2px solid #735EBB;
+    font-size: 1rem;
+    top: 5rem;
+    left: 5rem;
+    text-indent: 0.75rem;
+}
+
+.kid-birthday-cell > input[type="date"]::-webkit-calendar-picker-indicator{
+    position: absolute;
+    right: 0rem;
+    top: 0.6rem;
+    background: url("../../images/arrow.png") no-repeat;
+}
+
+
+.valid-li{
+    color: #3CD77A;
+    font-weight: 400;
+    list-style-image: url("../../images/valid-sign.png");
+
+}
+
+.invalid-li{
     color: black;
+    font-weight: 400;
+    list-style-type: none;
+}
+
+.kid-gender-cell{
+    position: relative;
+    grid-area: kidGenderCell;
+}
+
+.kid-gender-cell > h1 {
+    position: absolute;
+    top: 2rem;
+    right: 4rem;
+}
+
+.kid-gender-cell > button{
+    position: absolute;
+    width: 4rem;
+    height: 2.5rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+}
+
+.kid-gender-cell > button:active{
+    transform: translateY(2px);
+}
+
+.active--button{
+    border-color: #735EBB;
+}
+
+.kid-gender-cell .button-male{
+    right: 21.5rem;
+    top: 5rem;
+}
+.kid-gender-cell .button-female{
+    right: 16.5rem;
+    top: 5rem;
+}
+
+.warning-cell{
+    grid-area: warningCell;
+    position: relative;
+}
+
+.warning-cell > img{
+    position: absolute;
+    left: 5rem;
+    top: 6rem;
+}
+.warning-cell > p{
+    position: absolute;
+    left: 6.5rem;
+    top: 6rem;
+    font-size: 1rem;
+}
+
+.agreement-cell{
+    grid-area: userAgreementCell;
+    position: relative;
+}
+
+.agreement-cell .agreement-item{
+    display:inline-flex;
+    padding: 5rem 0 0 30%;
+}
+
+.agreement-cell .agreement-item > p a{
+    color:#826BD0;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.agreement-cell .agreement-item > p{
+    color:#826BD0;
+    font-weight: 400;
+}
+
+.agreement-cell .agreement-item > input[type="checkbox"]{
+    width: 3rem;
+    
+}
+
+.submit-cell{
+    grid-area: submitCell;
+    position: relative;
+    
+}
+
+.submit-cell > button[type="submit"]{
+    position: absolute;
+    width: 10rem;
+    height: 2rem;
+    background-color: #735EBB;
+    border-radius: 1rem;
+    color: white;
+    left: calc(50% - 5rem);
+    top: 1rem;
+    border: 1px solid black;
+}
+.submit-cell > button[type="submit"]:active{
+    transform: translateY(2px);
 }
 
 
 
-.hide-button:active {transform: translateY(2px);}
 
 
