@@ -6,6 +6,14 @@ import axios from "axios"
 export function RegisterContent(){
     const apiRegisterAdress: string = "https://api.kidokit.com/api/account/v2/register";
 
+    //error messages
+    const fullNameErrorMessage: string = "Geçerli bir ad ve soyad girmelisiniz";
+    const emailErrorMessage: string = "Geçerli bir e-mail adresi girmelisiniz";
+    const passwordErrorMessage: string = "Geçerli bir şifre girmelisiniz";
+    const childNameErrorMessage: string = "Geçerli bir çocuk adı girmelisiniz";
+    const childBirthdayErrorMessage: string = "Geçerli bir doğum tarihi girmelisiniz";
+    const agreementErrorMessage: string = "Anlaşma koşullarını kabul etmelisiniz";
+
     const [passwordShown, setPasswordShown] = useState<boolean>(false);
     const [repeatPasswordShown, setRepeatPasswordShown] = useState<boolean>(false);
     const [passwordCharacterCheck, setPasswordCharacterCheck] = useState<boolean>(false);
@@ -124,16 +132,22 @@ export function RegisterContent(){
                     "childGender" : childGender
                 }
             );
-
-
             axios.post(apiRegisterAdress, jsonString, {headers: {'Content-Type': 'application/json'}})
                 .then(response => {
                     console.log(response)
                 })
             console.log(jsonString); 
         }
-
-
+        else{
+            const errorMessage: string = 
+                (nameCheck ? "" : fullNameErrorMessage) + "\n" + 
+                (emailCheck ? "" : emailErrorMessage) + "\n" + 
+                (passwordCheck ? "" : passwordErrorMessage) + "\n" + 
+                (childNameCheck ? "" : childNameErrorMessage) + "\n" + 
+                (childBirthDayCheck ? "" : childBirthdayErrorMessage) + "\n" + 
+                (agreement ? "" : agreementErrorMessage) + "\n";
+            alert(errorMessage);
+        }
     }
     
     return(
