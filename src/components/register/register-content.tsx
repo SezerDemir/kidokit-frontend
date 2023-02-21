@@ -2,6 +2,7 @@ import React, { useState, FormEvent, ChangeEvent } from "react"
 import styles from "./register-style.module.css"
 import warningLogo from "../../images/warningSign.png"
 import axios from "axios"
+import { Link } from "react-router-dom";
 
 export function RegisterContent(){
     const apiRegisterAdress: string = process.env.REACT_APP_REGISTER_URL as string;
@@ -124,16 +125,17 @@ export function RegisterContent(){
         //validates input values
         const nameCheck: boolean = validateFullName(); 
         const emailCheck: boolean = validateEmail();
-        const passwordCheck: boolean = checkPassword();
-        setRepeatPasswordCheck(password===repeatPassword ? true:false); 
+        const passwordCheck: boolean = checkPassword(); 
         const childNameCheck: boolean = validateName();
         const childBirthDayCheck: boolean = (childBirthday !== "") ? true : false;
         const childGenderCheck: boolean = (Gender.none !== childGender) ? true : false;
         const agreement: boolean = (document.getElementById("agreement-checkbox") as HTMLInputElement).checked;
+        const repeatCheck: boolean = (password===repeatPassword ? true:false);
 
-        console.log(nameCheck + fullName);
+        console.log(fullName + " " + email + " " + password + " " + repeatPassword);
+        console.log(nameCheck + " " + emailCheck + " " + passwordCheck + " " + repeatCheck);
 
-        if(nameCheck && emailCheck && passwordCheck && repeatPasswordCheck && childNameCheck && childBirthDayCheck && childGenderCheck && agreement){
+        if(nameCheck && emailCheck && passwordCheck && repeatCheck && childNameCheck && childBirthDayCheck && childGenderCheck && agreement){
             const jsonString: string = JSON.stringify(
                 {
                     "fullName" : fullName,
@@ -147,14 +149,16 @@ export function RegisterContent(){
             axios.post(apiRegisterAdress, jsonString, {headers: {'Content-Type': 'application/json'}})
                 .then(response => {
                     console.log(response)
-                })
+                });
+                alert("Successfully Registered");
+                window.location.replace("/");
         }
         else{
             const errorMessage: string = 
                 (nameCheck ? "" : fullNameErrorMessage + "\n") + 
                 (emailCheck ? "" : emailErrorMessage + "\n") + 
                 (passwordCheck ? "" : passwordErrorMessage + "\n") + 
-                (repeatPasswordCheck ? "" : repeatPasswordErrorMessage + "\n") + 
+                (repeatPassword ? "" : repeatPasswordErrorMessage + "\n") + 
                 (childNameCheck ? "" : childNameErrorMessage + "\n") + 
                 (childBirthDayCheck ? "" : childBirthdayErrorMessage + "\n") + 
                 (childGenderCheck ? "" : childGenderErrorMessage + "\n") + 
@@ -189,7 +193,7 @@ export function RegisterContent(){
             </div>
                 
             <div className={styles["repeat-password-cell"]}>
-                <h1>Bir şifre belirleyiniz</h1>
+                <h1>Şifreyi tekrar giriniz</h1>
                 <input type={repeatPasswordShown ? "text" : "password"} id="input-repeat-password" 
                     onChange={handleInputChange}
                     onPaste={() => {console.log(navigator.clipboard.readText())}}

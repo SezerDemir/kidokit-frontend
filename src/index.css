@@ -4,6 +4,10 @@ body, html {
   font-size: 8px;
 
 }
+img {
+  pointer-events: none;
+  user-select: none;
+}
 
 
 

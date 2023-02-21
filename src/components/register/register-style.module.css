@@ -305,23 +305,25 @@ li{
     position: relative;
 }
 
-.agreement-cell .agreement-item{
-    display:inline-flex;
-    padding: 5rem 0 0 30%;
+.agreement-item{
+    display:flex;
+    width: 100%;
+    margin-top: 4rem;
+    justify-content: center;
 }
-
-.agreement-cell .agreement-item > p a{
+.agreement-item > p a{
     color:#826BD0;
     font-weight: 700;
     text-decoration: none;
 }
 
-.agreement-cell .agreement-item > p{
+.agreement-item > p{
     color:#826BD0;
     font-weight: 400;
+    
 }
 
-.agreement-cell .agreement-item > input[type="checkbox"]{
+.agreement-item > input[type="checkbox"]{
     width: 3rem;
     
 }

@@ -8,7 +8,7 @@ export function HomepageContent(){
             <h2>Hoş Geldiniz!</h2>
             <p>Çocuğunuzu büyütürken artık yalnız değilsiniz!<br/> Hemen kayıt olup Günlük Plan'a erişin!</p>
             <Link to={"/register"}>
-                <button type="button" className={styles["button-sign-up"]}>Kayıt</button> 
+                <button type="button" className={styles["button-sign-up"]}>Kayıt Ol</button> 
             </Link>
             <div className={styles["sign-in-container"]}>
                 <p>Zaten bir hesabınız mı var?</p>
