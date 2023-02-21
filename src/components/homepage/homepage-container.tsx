@@ -8,8 +8,10 @@ export function HomepageContainer(): JSX.Element{
 
     return(
         <div className={styles["homepage-container"]}>
-            <HomepageHeader />
-            <HomepageContent />
+            <div className={styles["flex-container"]}>
+                <HomepageHeader />
+                <HomepageContent />
+            </div>
         </div>
     );
 }

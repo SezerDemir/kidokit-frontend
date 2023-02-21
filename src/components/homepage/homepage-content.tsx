@@ -12,7 +12,9 @@ export function HomepageContent(){
             </Link>
             <div className={styles["sign-in-container"]}>
                 <p>Zaten bir hesabınız mı var?</p>
+                <Link to={"/login"}>
                 <button type="button" className={styles["button-sign-in"]}>Giriş Yap</button>
+                </Link>
             </div>
         </div>
     );

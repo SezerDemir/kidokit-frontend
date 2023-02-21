@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
+label{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-header{
+    margin: 10rem 0 0 0;
+}
+.login-header > h1{
+    color: #8D75E0;
+    font-size: 3rem;
+}
+
+.login-content-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-email{
+    position: relative;
+    height: 6rem;
+    width: 20rem;
+    margin-top: 5rem;
+}
+.input-email > label{
+    width: 100%;
+    text-align: center;
+}
+.input-email > input{
+    margin-top: 2.5rem;
+    width: 20rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 2px solid #735EBB;
+    
+}
+
+.input-password{
+    position: relative;
+    height: 6rem;
+    width: 20rem;
+    margin-top: 4rem;
+}
+.input-password > label{
+    width: 100%;
+    text-align: center;
+}
+.input-password > input{
+    margin-top: 2.5rem;
+    width: 20rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 2px solid #735EBB;
+}
+.input-password > button{
+    position: absolute;
+    top:4.75rem;
+    right: 1rem;
+    background-color: transparent;
+    border: none;
+    background-image: url("../../images/hide.png");
+    background-repeat: no-repeat;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+button:active{
+    transform: translateY(2px)
+}
+
+.button-submit{
+    margin-top: 5rem;
+    width: 12rem;
+    height: 3rem;
+    border-radius: 2rem;
+    border: 1px solid black;
+    background-color: #735EBB;
+    color: white;
+    font-weight: 700;
+}

@@ -13,15 +13,16 @@
 .sign-in-container > button:hover {color: #bdb6b6}
 
 .homepage-container{
-    width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
     background-image: url("../../images/BabyPhoto.png");
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .homepage-header{
