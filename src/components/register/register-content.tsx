@@ -49,13 +49,11 @@ export function RegisterContent(){
     const validateEmail = () => {
         return /\S+@\S+\.\S+/.test(email);
     }
-
     const validateFullName = () => {
-        return /^[a-zA-Z]+ [a-zA-Z]+$/.test(fullName);
+        return /^[a-zA-ZşŞıİçÇöÖüÜĞğ]+ [a-zA-ZşŞıİçÇöÖüÜĞğ]+$/.test(fullName);
     }
-
     const validateName = () => {
-        return /^[a-zA-Z]+$/.test(childName);
+        return /^[a-zA-ZşŞıİçÇöÖüÜĞğ]+$/.test(childName);
     }
 
     const validatePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
