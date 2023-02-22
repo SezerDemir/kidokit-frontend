@@ -40,7 +40,7 @@ export function RegisterContent(){
     const[childGenderMaleInputStyle, setChildGenderMaleInputStyle] = useState<string>("");
     const[childGenderFemaleInputStyle, setChildGenderFemaleInputStyle] = useState<string>("");
     const[agreementInputStyle, setAgreementInputStyle] = useState<string>("");
-
+    
     // error effects for input fields
     useEffect( () => {
         const timer = setTimeout(() => {
@@ -278,10 +278,7 @@ export function RegisterContent(){
 }
 
 async function registerRequest(api: string, requestBody: string){
-    await axios.post(api, requestBody, {headers: {'Content-Type': 'application/json'}})
-                .then(response => {
-                    console.log(response)
-                });
+    await axios.post(api, requestBody, {headers: {'Content-Type': 'application/json'}});
     window.location.replace("/");
 }
 

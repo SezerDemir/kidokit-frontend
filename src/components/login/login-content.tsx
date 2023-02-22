@@ -12,21 +12,14 @@ export function LoginContent(){
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        const jsonString: string = JSON.stringify(
+        const accountJson: string = JSON.stringify(
             {
                 "email" : email,
                 "password" : password
             }
         );
-
-        console.log(password + " " +  email + " " + apiUrl);
-        axios.post(
-            apiUrl,
-            jsonString,
-            {headers: {'Content-Type': 'application/json'}}
-        ).then(response => {
-            console.log(response)});
-
+        
+        loginRequest(apiUrl, accountJson);
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -60,4 +53,16 @@ export function LoginContent(){
         </form>
     );
 
+}
+
+async function loginRequest(url: string, data: string) {
+    let res = await axios.post(
+        url,
+        data,
+        {headers: {'Content-Type': 'application/json'}}
+    );
+    sessionStorage.setItem("userId", res.data.userId);
+    sessionStorage.setItem("accessToken", res.data.accessToken);
+    sessionStorage.setItem("refreshToken", res.data.refreshToken);
+    window.location.replace("/welcome");
 }
