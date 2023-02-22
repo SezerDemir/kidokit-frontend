@@ -40,7 +40,7 @@ export function RegisterContent(){
     const[childGenderMaleInputStyle, setChildGenderMaleInputStyle] = useState<string>("");
     const[childGenderFemaleInputStyle, setChildGenderFemaleInputStyle] = useState<string>("");
     const[agreementInputStyle, setAgreementInputStyle] = useState<string>("");
-    
+
     // error effects for input fields
     useEffect( () => {
         const timer = setTimeout(() => {
@@ -234,7 +234,7 @@ export function RegisterContent(){
                 <h1>Çocuğun ismi?</h1>
                 <input type="text" id="input-kid-name" className={styles[childNameInputStyle]} onChange={handleInputChange}/>
             </div>
-
+ 
             <div className={styles["kid-birthday-cell"]}>
                 <h1>Çocuğun Doğum Tarihi?</h1>
                 <input type={"date"} id="input-date" className={styles[childBirthdayInputStyle]} onChange={handleInputChange} />
@@ -271,7 +271,6 @@ export function RegisterContent(){
             <div className={styles["submit-cell"]}>
                 <button type="submit" >Kayıt Ol</button>
             </div>
-   
         </form>
         
     );

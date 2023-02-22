@@ -86,3 +86,10 @@ button:active{
     color: white;
     font-weight: 700;
 }
+
+.error-message-div{
+    margin-top: 2rem;
+}
+.error-message-div > p{
+    color: red;
+}

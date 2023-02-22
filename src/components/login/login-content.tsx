@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import React, { ChangeEvent, FormEvent, useState } from "react"
 import styles from "./login-style.module.css"
 
@@ -7,6 +7,9 @@ export function LoginContent(){
     const[passwordShow, setPasswordShow] = useState<boolean>(false);
     const[password, setPassword] = useState<string>("");
     const[email, setEmail] = useState<string>("");
+    const[showError, setShowError] = useState<boolean>(false);
+
+    const loginErrorMessage: string = "Kullanıcı Bulunamadı";
 
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -19,7 +22,8 @@ export function LoginContent(){
             }
         );
         
-        loginRequest(apiUrl, accountJson);
+        loginRequest(apiUrl, accountJson).then((res) => { !res ? setShowError(!res) : setShowError(!res)});
+        
     }
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -48,21 +52,35 @@ export function LoginContent(){
                 <input type={passwordShow ? "text" : "password"} onChange={handleChange} id="pass"/>
                 <button type="button" onClick={() => setPasswordShow(passwordShow ? false : true)}></button>
             </div>
-
             <button type="submit" className={styles["button-submit"]}>Giriş Yap</button>
+            { showError ? <ErrorMessage /> : null}
         </form>
     );
 
 }
 
-async function loginRequest(url: string, data: string) {
-    let res = await axios.post(
-        url,
-        data,
-        {headers: {'Content-Type': 'application/json'}}
+function ErrorMessage() {
+    return(
+        <div className={styles["error-message-div"]}>
+            <p>Kullanıcı bulunamadı</p>
+        </div>
     );
-    sessionStorage.setItem("userId", res.data.userId);
-    sessionStorage.setItem("accessToken", res.data.accessToken);
-    sessionStorage.setItem("refreshToken", res.data.refreshToken);
-    window.location.replace("/welcome");
+
+}
+
+async function loginRequest(url: string, data: string) {
+    try{
+        const res = await axios.post(
+            url,
+            data,
+            {headers: {'Content-Type': 'application/json'}}
+        )
+        sessionStorage.setItem("userId", res.data.userId);
+        sessionStorage.setItem("accessToken", res.data.accessToken);
+        sessionStorage.setItem("refreshToken", res.data.refreshToken);
+        window.location.replace("/welcome");
+    }catch(error){
+        return false;
+    }
+    return true;
 }
