@@ -1,5 +1,6 @@
 import axios, { AxiosError } from "axios";
 import React, { ChangeEvent, FormEvent, useState } from "react"
+import { Login } from "../../pages/Login";
 import styles from "./login-style.module.css"
 
 export function LoginContent(){
@@ -80,7 +81,7 @@ async function loginRequest(url: string, data: string) {
         sessionStorage.setItem("refreshToken", res.data.refreshToken);
         window.location.replace("/welcome");
     }catch(error){
-        return false;
+        console.log(error);
     }
-    return true;
+    return false;
 }
