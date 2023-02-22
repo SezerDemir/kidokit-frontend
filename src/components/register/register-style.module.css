@@ -274,11 +274,11 @@ li{
     border-color: #735EBB;
 }
 
-.kid-gender-cell .button-male{
+.button-male{
     right: 21.5rem;
     top: 5rem;
 }
-.kid-gender-cell .button-female{
+.button-female{
     right: 16.5rem;
     top: 5rem;
 }
@@ -324,8 +324,7 @@ li{
 }
 
 .agreement-item > input[type="checkbox"]{
-    width: 3rem;
-    
+    width: 2em;
 }
 
 .submit-cell{
@@ -349,6 +348,21 @@ li{
     transform: translateY(2px);
 }
 
+.input-warning-color-switch{
+    border: 2px solid black;
+    -webkit-animation: switch-animation 2s steps(10, start);
+    animation: switch-animation 2s steps(10, start);
+    animation-timing-function: linear;
+}
+
+@keyframes switch-animation {
+    0%, 50% {
+        border: 2px solid 735EBB;
+    }
+    50.1%, 100% {
+        border: 2px solid rgb(252, 5, 5);
+    }
+}
 
 
 
