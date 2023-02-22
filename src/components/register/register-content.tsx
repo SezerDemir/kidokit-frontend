@@ -156,9 +156,6 @@ export function RegisterContent(){
         const agreement: boolean = (document.getElementById("agreement-checkbox") as HTMLInputElement).checked;
         const repeatCheck: boolean = (password===repeatPassword && repeatPassword !== "" ? true:false);
 
-        console.log(fullName + " " + email + " " + password + " " + repeatPassword);
-        console.log(nameCheck + " " + emailCheck + " " + passwordCheck + " " + repeatCheck);
-
         if(nameCheck && emailCheck && passwordCheck && repeatCheck && childNameCheck && childBirthDayCheck && childGenderCheck && agreement){
             const jsonString: string = JSON.stringify(
                 {
@@ -171,9 +168,6 @@ export function RegisterContent(){
                 }
             );
             registerRequest(apiRegisterAdress, jsonString);
-            
-            alert("Successfully Registered");
-            //window.location.replace("/");
         }
         else{
             if(!nameCheck) setNameInputStyle("input-warning-color-switch");
@@ -188,7 +182,6 @@ export function RegisterContent(){
             }
             if(!agreement){
                 setAgreementInputStyle("input-warning-color-switch");
-                console.log("here");
             } 
             /* const errorMessage: string = 
                 (nameCheck ? "" : fullNameErrorMessage + "\n") + 
@@ -289,4 +282,7 @@ async function registerRequest(api: string, requestBody: string){
                 .then(response => {
                     console.log(response)
                 });
+    window.location.replace("/");
 }
+
+
